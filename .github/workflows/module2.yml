@@ -1,13 +1,17 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Module 1 Jobs
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
+    paths:
+      - "module2/**"
     branches: [ main ]
   pull_request:
+    paths:
+      - "module2/**"
     branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
