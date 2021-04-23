@@ -2,8 +2,6 @@ name: Module 1 deploy
 
 on:
   push:
-    paths:
-      - 'module1/**'
   workflow_dispatch:
 jobs:
   deploy:
