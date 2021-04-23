@@ -21,6 +21,7 @@ configure<com.google.cloud.tools.gradle.appengine.appyaml.AppEngineAppYamlExtens
 
     deploy {
         projectId = project
+        version = "4.2.0"
     }
 }
 
