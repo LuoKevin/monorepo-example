@@ -16,6 +16,15 @@ repositories {
     mavenCentral()
 }
 
+configure<com.google.cloud.tools.gradle.appengine.appyaml.AppEngineAppYamlExtension> {
+    val project = System.getenv("GCP_PROJECT")
+
+    deploy {
+        projectId = project
+    }
+}
+
+
 kotlin {
     sourceSets {
        main {
