@@ -20,7 +20,7 @@ repositories {
 }
 
 application {
-    mainClassName = "PoopKt"
+    mainClassName = "Poop2Kt"
 }
 
 configure<com.google.cloud.tools.gradle.appengine.appyaml.AppEngineAppYamlExtension> {
