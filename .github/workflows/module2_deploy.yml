@@ -1,3 +1,37 @@
-  on:
-    [ push ]
-  jobs:
+name: Module 2 deploy
+
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: '11.0.7'
+
+      - name: Cache Gradle packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+          restore-keys: ${{ runner.os }}-gradle
+
+      # Setup and configure gcloud CLI
+      - name: Gcloud SDK Setup Dev
+        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+          service_account_key: ${{ secrets.GCP_SA }}
+          export_default_credentials: true
+
+      - name: Deploy Dev
+        env:
+          APP_ENV: dev
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GCP_SA }}
+          GCP_PROJECT: ${{ secrets.GCP_PROJECT_ID }}
+        run: ./gradlew :module2:appEngineDeploy
