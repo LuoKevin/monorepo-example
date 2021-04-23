@@ -34,4 +34,4 @@ jobs:
           APP_ENV: dev
           GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GCP_SA }}
           GCP_PROJECT: ${{ secrets.GCP_PROJECT_ID }}
-        run: ./gradlew appEngineDeploy
+        run: ./gradlew :module1:appEngineDeploy
