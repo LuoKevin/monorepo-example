@@ -5,6 +5,3 @@ service: module1
 includes:
   - env_vars_dev.yaml
 instance_class: F1
-handlers:
-  - url: /.*
-    script:
