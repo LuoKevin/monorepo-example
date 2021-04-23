@@ -39,7 +39,7 @@ tasks {
     val shadowJarTask = named<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar>("shadowJar") {
         excludes.add("*.js")
         // explicitly configure the filename of the resulting UberJar
-        archiveFileName.set("screw-you.jar")
+        archiveFileName.set("module1-1.0-SNAPSHOT.jar")
 
         // Appends entries in META-INF/services resources into a single resource. For example, if there are several
         // META-INF/services/org.apache.maven.project.ProjectBuilder resources spread across many JARs the individual
