@@ -9,6 +9,7 @@ plugins {
     application
     kotlin("plugin.serialization") version "1.4.0"
     kotlin("jvm") version "1.4.0"
+    id("com.google.cloud.tools.appengine") version "2.4.1"
 }
 
 repositories {
